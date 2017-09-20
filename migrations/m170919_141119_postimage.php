@@ -9,7 +9,7 @@ class m170919_141119_postimage extends Migration
     {
         $this->createTable( 'postimage', [
             'id' => $this->primaryKey(),
-            'image' => $this->string()->defaultValue(null),
+            'image' => $this->string(),
             'post_id' => $this->integer(),
         ]);
 

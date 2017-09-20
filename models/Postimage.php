@@ -54,4 +54,10 @@ class Postimage extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
     }
+
+    public function saveIm($file)
+    {
+        $this->image = $file;
+        return $this->save(false);
+    }
 }

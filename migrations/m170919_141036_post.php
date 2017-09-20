@@ -14,6 +14,7 @@ class m170919_141036_post extends Migration
             'category_id' => $this->integer(),
             'status' => $this->integer(),
             'pub_date' => $this->date(),
+            'image' => $this->string(),
         ]);
     }
 

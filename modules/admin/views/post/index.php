@@ -29,7 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'content:ntext',
             'category_id',
             'status',
-            // 'pub_date',
+            [
+                    'format' => 'html',
+                    'label' => 'Image',
+                    'value' => function($data){
+                        return Html::img($data->GetIm(),['width'=>200, 'height'=>150]);
+                    }
+            ],
+            'pub_date',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
