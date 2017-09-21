@@ -9,8 +9,10 @@ class m170919_141020_category extends Migration
     {
         $this->createTable( 'category', [
             'id' => $this->primaryKey(),
+            'parent_id' => $this->integer(),
             'title' => $this->text(),
             'status' => $this->integer(),
+            'description' => $this->string(),
         ]);
     }
 

@@ -1,3 +1,6 @@
+* { margin: 0; padding: 0; }
+p { margin: 5px 0 10px 0; }
+
 html,
 body {
     height: 100%;
@@ -112,4 +115,77 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+
+.upmarg{
+    margin-top: 60px;
+}
+
+.sidebar ul li{
+    list-style: none;
+    padding-bottom: 5px;
+}
+
+.category{
+    display: block;
+    border-radius: 5px;
+    background-color: #f5f5f5 ;
+}
+
+.content{
+    display: block;
+    border-radius: 5px;
+    background-color: #333333;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+}
+
+.content p{
+    display: block;
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.content h3{
+    color: #333333;
+    padding-left: 25px;
+
+}
+
+.content h4{
+    color: #f5f5f5;
+    padding-left: 25px;
+
+}
+
+.mypager{
+    display: block;
+    padding-left: 35%;
+}
+
+
+.category h5{
+    display: block;
+    border-radius: 5px;
+    background-color: #333333;
+    color: #f5f5f5;
+    padding: 6px 0 6px 15px;
+}
+
+.slidown{
+    background: none;
+    border-radius: 10px;
+    color: #333333;
+    display: inline-block;
+    line-height: 1;
+    padding: 3px 7px;
+}
+
+.publication{
+    display: block;
+    background-color: #f5f5f5 ;
+    border-radius: 4px;
+    margin: 0px 5px 5px 5px;
 }

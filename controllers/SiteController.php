@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\Post;
 use Yii;
+use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -61,7 +63,15 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $query = Post::find()->where(['status' => 1]);
+        $pages = new Pagination(['totalCount' => $query->count(), 'pageSize' => 10]);
+        $models = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->orderBy(['pub_date'=>SORT_DESC])
+            ->where('pub_date' <= date('Y-m-d'))
+            ->all();
+
+        return $this->render('index', compact('models','pages' ));
     }
 
     /**
@@ -123,4 +133,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
 }

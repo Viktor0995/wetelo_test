@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Test_Wetelo',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -38,18 +38,52 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Admin', 'url' => ['/admin/default/index']],
-            ['label' => 'Post', 'url' => ['/admin/post/index']],
-            ['label' => 'Category', 'url' => ['/admin/category/index']],
+            ['label' => 'Home', 'url' => ['/site/index']],
+            Yii::$app->user->isGuest ? (
+            ['label' => 'Login', 'url' => ['/site/login']]
+            ) : (
+                '<li>'
+                . Html::beginForm(['/site/logout'], 'post')
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'btn btn-link logout']
+                )
+                . Html::endForm()
+                . '</li>'
+            )
         ],
     ]);
     NavBar::end();
     ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+    <div class="row">
+        <div class="upmarg">
+            <div class="container">
+                <div class="col-md-9">
+
+                    <?= Breadcrumbs::widget([
+                        'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                    ]) ?>
+                    <?= $content ?>
+                </div>
+                <div class="col-md-3">
+                    <div class="sidebar">
+                        <div class="category">
+                            <h5>Manage</h5>
+                            <ul>
+                                <li >
+                                    <?= Html::a('Manage post', '/admin/post/index')?>
+                                </li>
+                                <li >
+                                    <?= Html::a('Manage category', '/admin/category/index')?>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

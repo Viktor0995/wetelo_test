@@ -43,4 +43,8 @@ class Category extends \yii\db\ActiveRecord
             'status' => 'Status',
         ];
     }
+
+    public function getProducts(){
+        return $this->hasMany(Post::className(), ['category_id' => 'id']);
+    }
 }

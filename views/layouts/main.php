@@ -26,9 +26,10 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+    <div class="row">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Test_Wetelo',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -56,12 +57,29 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
+    <div class="row">
+        <div class="upmarg">
+        <div class="container">
+            <div class="col-md-9">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+                <div class="content">
+                    <?= $content ?>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="category">
+                        <h5>Category</h5>
+                        <ul class="accordion">
+                            <p><?= \app\components\MenuWidget::widget(['tpl' => 'menu'])?></p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
 </div>
 

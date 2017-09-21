@@ -31,8 +31,6 @@ class UploadForm extends Model
 
     public function uploadFile($file, $currentImage)
     {
-
-
         $file -> saveAs('../web/uploads/'. $file->name);
         return $file->name;
     }
