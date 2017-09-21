@@ -165,6 +165,13 @@ a.desc:after {
     padding-left: 35%;
 }
 
+.pict{
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 150px;
+}
+
 
 .category h5{
     display: block;

@@ -15,7 +15,7 @@ use yii\widgets\LinkPager;
     <?php foreach ($models as $show):?>
         <?php if($show->status !== 0): ?>
             <div class="publication">
-                <h3><?= $show->title?></h3>
+            <h3><a href="<?= yii\helpers\Url::to(['post/view', 'id' => $show->id])?>"><?= $show->title?></a></h3>
                 <p>Publication day: <?= $show->pub_date?></p>
             </div>
         <?php endif;?>

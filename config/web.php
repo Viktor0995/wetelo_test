@@ -46,6 +46,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'category/<id:\d+>' => 'category/view',
+                'post/<id:\d+>' => 'post/view',
             ],
         ],
     ],
