@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Test_Wetelo',
+        'brandLabel' => 'Me_site',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -57,7 +57,7 @@ AppAsset::register($this);
     ?>
 
     <div class="row">
-        <div class="upmarg">
+        <div class="upmargin">
             <div class="container">
                 <div class="col-md-9">
 
@@ -66,6 +66,7 @@ AppAsset::register($this);
                     ]) ?>
                     <?= $content ?>
                 </div>
+
                 <div class="col-md-3">
                     <div class="sidebar">
                         <div class="category">

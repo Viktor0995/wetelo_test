@@ -3,11 +3,13 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use app\models\User;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use yii\bootstrap\Modal;
 
 AppAsset::register($this);
 ?>
@@ -27,36 +29,35 @@ AppAsset::register($this);
 
 <div class="wrap">
     <div class="row">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'Test_Wetelo',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
-    ]);
-    NavBar::end();
-    ?>
+        <div class="container">
+            <div class="col-md-12">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="<?= \yii\helpers\Url::toRoute(['site/index'])?>">My_site</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li><a href="<?= \yii\helpers\Url::toRoute(['site/index'])?>">Home</a></li>
+                        </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <?php  if(Yii::$app->user->isGuest): ?>
+                                    <li><a href="<?= \yii\helpers\Url::toRoute(['logreg/login'])?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                    <li><a href="<?= \yii\helpers\Url::toRoute(['logreg/signup'])?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <?php  else:?>
+                                    <?= Html::beginForm(['logreg/logout'], 'post')
+                                    . Html::submitButton(
+                                        'Logout('. Yii::$app->user->identity->username .')',
+                                        ['class' => 'btn btn-danger navbar-btn']
+                                    )
+                                    .Html::endForm()?>
+                                <?php  endif;?>
+                            </ul>
+
+                    </div>
+                </nav>
+                </div>
+            </div>
+        </div>
     <div class="row">
         <div class="upmarg">
         <div class="container">
@@ -64,6 +65,7 @@ AppAsset::register($this);
                 <?= Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
+
                 <div class="content">
                     <?= $content ?>
                 </div>

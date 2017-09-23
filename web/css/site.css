@@ -118,7 +118,15 @@ a.desc:after {
 }
 
 .upmarg{
-    margin-top: 60px;
+    margin-top: 10px;
+}
+
+.upmargin{
+    margin-top: 80px;
+}
+
+.login{
+    color: #888a85;
 }
 
 .sidebar ul li{
@@ -168,10 +176,9 @@ a.desc:after {
 .pict{
     display: block;
     margin: 0 auto;
-    width: 200px;
-    height: 150px;
+    width: 300px;
+    height: 200px;
 }
-
 
 .category h5{
     display: block;

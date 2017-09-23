@@ -16,7 +16,7 @@ use yii\data\Pagination;
 use yii\web\Controller;
 
 
-class CategoryController extends Controller
+class CategoryController extends LogregController
 {
     public function actionView($id){
 

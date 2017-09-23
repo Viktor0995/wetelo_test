@@ -13,7 +13,7 @@ use app\models\Post;
 use Yii;
 use yii\web\Controller;
 
-class PostController extends  Controller
+class PostController extends  LogregController
 {
     public function actionView($id)
     {

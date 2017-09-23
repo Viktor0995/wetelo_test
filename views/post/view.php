@@ -8,7 +8,6 @@
 
 
 use \yii\helpers\Html;
-use yii\widgets\LinkPager;
 
 
 ?>
@@ -16,9 +15,9 @@ use yii\widgets\LinkPager;
                 <h3><?= $posts->title?></h3>
                 <p><?= $posts->content?></p>
                 <p>Publication day: <?= $posts->pub_date?></p>
-                <div class="pict">
+                <p class="pict">
                     <?= Html::img("@web/uploads/{$posts->image}", ['alt' => $posts->title]) ?>
-                </div>
+                </p>
             </div>
 
 

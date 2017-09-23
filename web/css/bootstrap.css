@@ -738,7 +738,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 10px 0;
+  margin: 0px 0;
   font-family: inherit;
   font-weight: bold;
   line-height: 20px;
@@ -2306,7 +2306,6 @@ table th[class*="span"],
 .dropdown-submenu:focus > a > [class^="icon-"],
 .dropdown-submenu:hover > a > [class*=" icon-"],
 .dropdown-submenu:focus > a > [class*=" icon-"] {
-  background-image: url("../img/glyphicons-halflings-white.png");
 }
 
 .icon-glass {
