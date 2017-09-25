@@ -3,6 +3,8 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Category;
+use app\models\Comment;
+use app\models\CommentForm;
 use app\models\UploadForm;
 use Yii;
 use app\models\Post;
@@ -157,9 +159,7 @@ class PostController extends Controller
             {
                 return $this->redirect(['view', 'id' =>$post->id]);
             }
-
         }
         return $this->render('category', compact('post', 'chcat', 'cat'));
     }
-
 }

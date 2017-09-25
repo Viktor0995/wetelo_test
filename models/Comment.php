@@ -56,19 +56,25 @@ class Comment extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getPost()
     {
         return $this->hasOne(Post::className(), ['id' => 'post_id']);
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    public function allow()
+    {
+        $this->status = 1;
+        return $this->save(false);
+    }
+
+    public  function disallow()
+    {
+        $this->status = 0;
+        return $this->save(false);
     }
 }

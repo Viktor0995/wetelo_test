@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Post */
@@ -15,7 +15,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput() ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'content')->widget(CKEditor::className(),[
+        'editorOptions' => [
+            'preset' => 'full',
+            'inline' => false,
+        ],
+    ]) ?>
 
     <?= $form->field($model, 'pub_date')->textInput() ?>
 

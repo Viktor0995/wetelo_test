@@ -78,6 +78,9 @@ AppAsset::register($this);
                                 <li >
                                     <?= Html::a('Manage category', '/admin/category/index')?>
                                 </li>
+                                <li >
+                                    <?= Html::a('Manage comment', '/admin/comment/index')?>
+                                </li>
 
                             </ul>
                         </div>
