@@ -47,16 +47,25 @@ class Postimage extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getPost()
+    public function saveId($id)
     {
-        return $this->hasOne(Post::className(), ['id' => 'post_id']);
+        $this->post_id = $id;
+        return $this->save(false);
     }
 
-    public function getImage()
+    public function saveImage($filename)
     {
-        return $this->hasOne(Post::className(), ['image' => 'image']);
+        $this->image = $filename;
+        return $this->save(false);
     }
+
+    public function getIm()
+    {
+        if($this->image)
+        {
+            return '/uploads/'. $this->image;
+        }
+        return '/no-image.png';
+    }
+
 }

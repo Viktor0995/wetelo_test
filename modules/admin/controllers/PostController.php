@@ -5,6 +5,8 @@ namespace app\modules\admin\controllers;
 use app\models\Category;
 use app\models\Comment;
 use app\models\CommentForm;
+use app\models\LoadImage;
+use app\models\Postimage;
 use app\models\UploadForm;
 use Yii;
 use app\models\Post;
@@ -114,16 +116,11 @@ class PostController extends Controller
 
     public function actionLoad($id)
     {
-        $model = new UploadForm;
-
+        $model = new LoadImage();
         $post = $this->findModel($id);
-
-        if(Yii::$app->request->post())
-        {
-                $file = UploadedFile::getInstance($model, 'image');
-
-                if($post -> saveIm($model -> uploadFile($file, $post->image)))
-                {
+        if (Yii::$app->request->isPost) {
+            $file = UploadedFile::getInstance($model, 'imageFile');
+            if ($model->saveImage($model->uploadFile($file))) {
                     return $this->redirect(['view', 'id'=>$post->id]);
                 }
         }

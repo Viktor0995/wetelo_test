@@ -13,9 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-    <?= $form->field($model, 'image')->fileInput() ?>
+    <?= $form->field($model, 'imageFile')->fileInput()->label(false) ?>
 
-    <button>Submit</button>
+    <button>Load image</button>
 
     <?php ActiveForm::end(); ?>
 
